@@ -44,14 +44,13 @@ const createRecipe = (event) => {
     .then((data) => {
         console.log('Response:', data);
         if (data.detail) {
-            const p = document.getElementById('recipe-error');
-            p.innerText = 'You must be logged in to upload recipe!';
+            alert("You must be logged in to upload recipe!")
+            window.location.href = "login.html";
         } else if (data.id) {
-            const p = document.getElementById('recipe-error');
-            p.innerText = 'Recipe created successfully. Please reload.';
-            
+            alert("Recipe created successfully.")
+            // const p = document.getElementById('recipe-error');
+            // p.innerText = 'Recipe created successfully. Please reload.';
         }
-        window.location.href = "recipe.html";
     })
     .catch(error => {
         console.error('Error creating recipe:', error);
